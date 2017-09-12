@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view></router-view>
   </div>
 </template>
@@ -11,13 +10,14 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="css">
+  /*这里必须写成@import形式，标签里面用src引入会报错*/
+  @import url('./css/common.css');
+  @import url('./css/style.css');
+  @import url('./css/add-styles.css');
+  @import url('./css/hx_style.css');
+  #app {
+    height:100%;
+  }
 </style>
+

@@ -1,0 +1,356 @@
+/* 追加样式 用于覆盖重构提供的样式bug */
+
+/* 首屏加载动画 */
+@-moz-keyframes wormsPong {
+    25% {
+        width: 100%;
+    }
+    50% {
+        width: 0;
+        left: auto;
+        right: 0;
+    }
+    75% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+        right: auto;
+        left: 0;
+    }
+}
+@-webkit-keyframes wormsPong {
+    25% {
+        width: 100%;
+    }
+    50% {
+        width: 0;
+        left: auto;
+        right: 0;
+    }
+    75% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+        right: auto;
+        left: 0;
+    }
+}
+@keyframes wormsPong {
+    25% {
+        width: 100%;
+    }
+    50% {
+        width: 0;
+        left: auto;
+        right: 0;
+    }
+    75% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+        right: auto;
+        left: 0;
+    }
+}
+
+/* 360°旋转动画 */
+@-webkit-keyframes rotate360 {
+    from {-webkit-transform:rotate(0deg);}
+    to {-webkit-transform:rotate(360deg);}
+}
+@-moz-keyframes rotate360 {
+    from {-moz-transform:rotate(0deg);}
+    to {-moz-transform:rotate(360deg);}
+}
+@-o-keyframes rotate360 {
+    0% {-o-transform:rotate(0deg);}
+    100% {
+        -o-transform: rotate(360deg);
+    }
+}
+@keyframes rotate360 {
+    0% {transform:rotate(0deg);}
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* wjc 宽度不正确*/
+.sidebar_box{
+    background:#fff;
+    width:100% !important;
+    height:100% !important;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    box-shadow:0 0 10px rgba(0,0,0,0.3);
+    position:relative;
+    z-index:3000;
+    overflow-x:hidden;
+    overflow-y:auto;}
+
+/* wjc 修改 input可以自动选择 */
+.icon_check:before, .i_checkbox{
+    display:block;
+    content:"";
+    border: none;
+    width:0.2rem;
+    height:0.18rem;
+    position:absolute;
+    top:0.01rem;
+    left:0;
+    background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAkCAYAAAD7PHgWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB3SURBVFhH7ZjtCgAQDEW9/zPuXUjybz7aotFR/mB1O91LlkQkR5lJG1HEVR1TgermpcUOCYFW4BC0kut1EITg8JL0otmsx4OboIbHIAhBUrzwACEhJISEkHhTAEEItvYLH3erE3iLreT++rhH6BO+2cD0+ud0fQG/86/GYFWXygAAAABJRU5ErkJggg==") no-repeat center;
+    background-size: 100% 100%;}
+/* wjc 修改 input可以自动选择 */
+.icon_check.checked:before, .i_checkbox:checked{
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAkCAYAAAD7PHgWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMaSURBVFhH3ZY9iBNBFMfXD8RLZi7Jzm7u4icIB4KgvdjYCFpYCHbWNla2Noc2NlZ2llbCFQqe3iWbhCAINoqFH+f5ARaCIniIaKHcqf/Zey+3s85OcofJRn/wIG/ef2b/zL6didcM5K/8Qjyc8bxtngv7xGGE+NSsVPaQjWx4AqW5AQObYPoK4kFLFY/S8OgYjAJxgb1EgfwBo2fjwigYhKET8LDMXihW2uXy3twNwtwUdutzwthqKPkRPVrK1eCc74/D4DPD2GosN/zxY7GIB+NkiOCB+CjkTX5+MnQ/kiw/gzAxnTTFgR29pc2TLB+DkZInYeRn0piOSInFuO+ScJHSgVNXYr/1o0C0K8UDJFuDi5QOFL07eLUvkqaSQTITZ/EvMu15m/EKZ5OG0kFSk6xix/O2Yvx8QxXP4ULfQsMbBn13iZ9lhJL3+DdJTWxFbQgTZ7iGxW/0/NfhIPLFKetHEch3rWpxgnOSm9iKMHeRxznweu7crtUKJOkb3fjouy/p9RDf26E8rDU8Fk9IYytix67xuBH6daSPAQedUqncVOKVbS3dOiRbv8G5SRFi7AnXkoGdfKTrJM1Etwm089Y1AnGdZDE8TqlJVlGbQI885XoqFuqV7btJagVzL1vm6bfwON0qXKPUxFVsTBSreJDtMte78Ba1KZIaRKE4jdofHwUO6KVmtbSPZF24TqmJswj0V5ZpUskP9bBwiKQx0B9E332z6FdagTxOMgPWUGriLBJ0FDxnrRliqfs1SqnQd29sOv3nIF7MAmsoNXEWE3TCwiR0C6w3QomvendgIsqo38UD1v6hpGAdpSbOYor5oFCDicy71BbY0df6uKElrLCWUhNn0UKkxnbgoYs8zxnoxXSP2mA9pSbOYgYtf2wnHv6S52ZFQ8kzNMUJ6yk1cRYddPyxXTBpvSV0YJevkrQnPIdSE2exB9qk7jFeoxtK3l/PnwueR6mJs9gH+kZJHi04G9/rPqVyXzg9OIt9ok1iDdzduClCcYSG+2bgBhksknnWuRiawY3yfxgchSBLJjZhXkGW/iU87zf7JabVyCbuNAAAAABJRU5ErkJggg==") !important;
+}
+
+/* wjc 身份证上传点击input改成透明层的加在顶部 */
+.photo-upload-mask{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .01;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* wjc覆盖框架遮罩层  */
+.shadow_box{
+    visibility: hidden;
+    transition: all .4s;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0) !important;
+    position:fixed;
+    top:0;
+    bottom:0;
+    z-index:2500;
+}
+.shadow_box.show{
+    visibility: visible;
+    background:rgba(0,0,0,0.5) !important;
+}
+
+.sidebar_box{
+    background:#fff;
+    width:100% !important;
+    height:100% !important;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    box-shadow:0 0 10px rgba(0,0,0,0.3);
+    position:relative;
+    z-index:3000;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+/* 等待层 */
+.wait-layer{
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: white;
+    top: 0;
+    left: 0;
+    margin: auto;
+    z-index: 10000;
+}
+.wait-layer div{
+    margin: 0 auto;
+    padding: 5px 0;
+    position: relative;
+    font: normal 18px/1em Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.wait-layer div:after {
+    content: "";
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-animation: wormsPong cubic-bezier(0.77, 0, 0.175, 1) 0.8s infinite;
+    -webkit-animation: wormsPong cubic-bezier(0.77, 0, 0.175, 1) 0.8s infinite;
+    animation: wormsPong cubic-bezier(0.77, 0, 0.175, 1) 0.8s infinite;
+    background-color: #1a9bff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    height: 4px;
+}
+
+/* wjc 按钮点击后的loading旋转效果 */
+.btn-loading .disc{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0 0 -10px;
+    border-radius: 20px;
+    border: rgba(255, 255, 255, 0.25) 2px solid;
+    border-top-color: #fff;
+    -webkit-animation: rotate360 750ms linear infinite;
+    -moz-animation: rotate360 750ms linear infinite;
+    -o-animation: rotate360 750ms linear infinite;
+    animation: rotate360 750ms linear infinite;
+    z-index: 5;
+}
+.btn-loading {
+    color: transparent !important;
+    position: relative;
+}
+
+.ce_btn > a:active, a.btn-loading{
+    opacity: 0.9;
+}
+
+/* wjc内容部分禁止点击透明遮罩 */
+article.disable:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 500;
+}
+
+
+/* wjc字体变小的问题 */
+.login_tel{
+    font-size: 0.14rem;
+}
+
+/* wjc 密文 */
+input[type='tel'].security{
+    -webkit-text-security: disc;
+    -moz-text-security: disc;
+    text-security: disc;
+}
+
+.font_white{
+    color: white !important;
+}
+
+
+
+
+/* wjc 解决地图图片拉伸 */
+.map_box > .map_fixed img {
+    display: auto !important;
+    width: auto !important;
+}
+
+/* wjc 解决地图工具栏定位不正确的问题 */
+.map_box > .map_fixed{
+    position: relative;
+}
+/* wjc 地图缩放工具栏样式 */
+.map_scale_tools{
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    width: 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.3);
+    background: white;
+    padding: 0 2px;
+    z-index: 10001;
+}
+
+.map_scale_tools > .zoom_button{
+    width: 100%;
+    height: 30px;
+    display: block;
+    padding: 3px 0;
+}
+.map_scale_tools > .zoom_button:first-child{
+    border-bottom: 1px solid #ccc;
+}
+.map_scale_tools > .zoom_button--up {
+    background-image: url(../images/scale.png);
+    background-position: center 0;
+}
+.map_scale_tools > .zoom_button--down {
+    background-image: url(../images/scale.png);
+    background-position: center 30px;
+}
+
+
+/* 按钮进度条 */
+@-webkit-keyframes progress-bar-stripes {
+    from {
+        background-position: 40px 0
+    }
+    to {
+        background-position: 0 0
+    }
+}
+@keyframes progress-bar-stripes {
+    from {
+        background-position: 40px 0
+    }
+    to {
+        background-position: 0 0
+    }
+}
+.ce_btn > a.btn-progress{
+    background-color: rgb(237, 247, 255);
+    position: relative;
+}
+.btn-progress .btn-progress-inner{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 0%;
+    background-color: #1a9bff !important;
+    transition: all .3s;
+
+    -webkit-animation: progress-bar-stripes 2s linear infinite;
+    animation: progress-bar-stripes 2s linear infinite;
+
+    background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(255,255,255,0.15)),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(255,255,255,0.15)),color-stop(0.75,rgba(255,255,255,0.15)),color-stop(0.75,transparent),to(transparent));
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 40px 40px;
+}
+.btn-progress .btn-progress-text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: black;
+    text-align: center;
+    z-index: 5;
+    font-size: .18rem;
+}
