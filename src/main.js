@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import * as Utils from './utils/util'
+import * as $ from './utils/base'
 
 Vue.config.productionTip = false
 
@@ -13,3 +15,10 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+
+var phoneno = ''
+phoneno = Utils.getUrlParam('phoneno')
+console.log('phoneno=' + phoneno)
+if (phoneno !== '' && phoneno !== null) {
+  $.setSStorageInfo('phoneno', phoneno)
+}

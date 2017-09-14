@@ -4,10 +4,10 @@
       <div class="account_box">
         <div class="content_bottom">
           <div class="buttons_box">
-            <a id="open" href="javascript:void(0);">理财开户</a>
-            <a id="download" href="javascript:void(0);">股票开户</a>
+            <a @click="jumpToOpen" href="javascript:void(0);">开始</a>
+            <a @click="jumpToDownload" href="javascript:void(0);">测试跳转</a>
           </div>
-          <p>华西证券旗下专业理财服务平台</p>
+          <p style="color: red;font-size: large">My Vue</p>
         </div>
       </div>
     </article>
@@ -20,6 +20,18 @@ export default {
   data () {
     return {
       msg: ''
+    }
+  },
+  methods: {
+    jumpToOpen: function () {
+      console.log('jumpToOpen')
+      // 页面跳转，手动修改url
+      this.$router.push({name: 'index', params: {}})
+    },
+    jumpToDownload: function () {
+      console.log('jumpToDownload')
+      // 页面跳转，手动修改url
+      this.$router.push({name: 'download', params: {}})
     }
   }
 }

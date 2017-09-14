@@ -16,6 +16,9 @@ export default {
   @import url('./css/style.css');
   @import url('./css/add-styles.css');
   @import url('./css/hx_style.css');
+  /*
+    之前图片一直显示不出来就是没加这个样式，必须设置html,body,#app的height都为100%
+   */
   #app {
     height:100%;
   }
