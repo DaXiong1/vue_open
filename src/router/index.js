@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import IndexZh from '@/components/index_zh'
 import Download from '@/components/download'
 import Index from '@/components/index'
+import IdCardCheck from '@/components/idCardCheck'
 
 Vue.use(Router)
 
@@ -25,6 +26,12 @@ export default new Router({
       path: '/index',
       name: 'index',
       component: Index
+    },
+    // 业务页面2
+    {
+      path: '/idCardCheck',
+      name: 'idCardCheck',
+      component: IdCardCheck
     }
   ]
 })
