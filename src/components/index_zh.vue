@@ -40,7 +40,7 @@ export default {
 <style>
   .account_box{
     height:100%;
-    background:url(../images/open-account.png) no-repeat top center;
+    background:url(../../static/images/open-account.png) no-repeat top center;
     background-size:cover;
     position:relative;
   }
