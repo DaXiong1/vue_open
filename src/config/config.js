@@ -5,14 +5,14 @@ const steps = [
   'tpbank', 'setpwd', 'risksurvey', 'visitsurvey',
   'success']
 const stepMap = {
-  'uploadimg': 'account/idCardCheck', // 上传照片
-  'idconfirm': 'account/userCardInfo', // 信息确认
-  'stkacct': 'account/openTypeSelect', // 账户选择
-  'tpbank': 'account/bankBind', // 三方存管
-  'setpwd': 'account/passwordSet', // 密码设置
-  'risksurvey': 'account/riskAssess', // 风险测评
-  'visitsurvey': 'account/visitSurvey', // 问卷回访
-  'success': 'account/applyResult' // 结果页
+  'uploadimg': 'idCardCheck', // 上传照片
+  'idconfirm': 'userCardInfo', // 信息确认
+  'stkacct': 'openTypeSelect', // 账户选择
+  'tpbank': 'bankBind', // 三方存管
+  'setpwd': 'passwordSet', // 密码设置
+  'risksurvey': 'riskAssess', // 风险测评
+  'visitsurvey': 'visitSurvey', // 问卷回访
+  'success': 'applyResult' // 结果页
 }
 
 export {

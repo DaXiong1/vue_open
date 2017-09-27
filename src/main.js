@@ -22,3 +22,4 @@ console.log('phoneno=' + phoneno)
 if (!!phoneno && true) { // 这么写为了使eslint校验通过
   $.setSStorageInfo('phoneno', phoneno)
 }
+
