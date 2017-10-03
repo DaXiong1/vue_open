@@ -9,7 +9,7 @@ section.main.fixed.hx_page{
 	background: #f7f7f7;
 }
 .hd_inner01.header_inner{
-	background: #DE4C39;
+	background: #7cfc00;
 	border:none;
 }
 .hd_inner01.header_inner > h1.title{
@@ -924,7 +924,7 @@ section.main.fixed.hx_page > article.content.status_ibox{
 }
 .ce_btn > a.plain_btn{
 	margin-top:0.15rem;
-	color:#DE4C39;
+	color:#7cfc00;
 	background: transparent;
 }
 /**2016-12-14上传身份证**/
@@ -1008,7 +1008,7 @@ section.main.fixed.hx_page > article.content.status_ibox{
 }
 .upload_btn h5 {
 	text-align:center;
-	color:#DE4C39;
+	color:#7cfc00;
 	font-size:0.18rem;
 	font-weight:normal;
 	padding:0.10rem 0 0.06rem 0;
@@ -1026,7 +1026,7 @@ section.main.fixed.hx_page > article.content.status_ibox{
 	padding-top:0.4rem;
 	position:relative;
 	font-size:16px;
-	color:#DE4C39;
+	color:#7cfc00;
 	font-size:14px;
 }
 .upload_btn ul li:nth-child(1) a:before {
@@ -1410,7 +1410,7 @@ color:#4c4c4c;
 background:#ffffff;
 }
 .notice_tip span{
-color:#de4c39;
+color:#7cfc00;
 }
 .inform_head{
 font-size:0.14rem;

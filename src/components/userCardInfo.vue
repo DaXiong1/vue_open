@@ -50,15 +50,15 @@
           <div class="input_form">
             <div class="input_text act">
               <span class="tit active">民族</span>
-              <div class="dropdown" required default-hint="民族" error-hint="请选择民族">{{nation}}</div>
+              <div class="dropdown" default-hint="民族" error-hint="请选择民族" @click="selectDetail">{{nation}}</div>
             </div>
             <div class="input_text act">
               <span class="tit active">学历</span>
-              <div class="dropdown" required default-hint="学历" error-hint="请选择学历">{{qualifications}}</div>
+              <div class="dropdown" default-hint="学历" error-hint="请选择学历" @click="selectDetail">{{qualifications}}</div>
             </div>
             <div class="input_text act">
               <span class="tit active">职业</span>
-              <div class="dropdown" required default-hint="职业" error-hint="请选择职业">{{job}}</div>
+              <div class="dropdown" default-hint="职业" error-hint="请选择职业" @click="selectDetail">{{job}}</div>
             </div>
           </div>
         </div>
@@ -71,6 +71,7 @@
 <script>
 import * as $ from '../utils/base'
 import * as Utils from '../utils/util'
+import * as config from '../config/config'
 
 var userInfo
 var endDateCache = ''
@@ -107,9 +108,24 @@ export default {
       endDateCache = this.endDate
     }
     // 处理民族/学历/职业
-    this.getEthnic(this)
-    this.getEdu(this)
-    this.getJob(this)
+    var objEthnic = $.getSStorageInfo('selected_' + config.dictionary.ethnic)
+    var objEdu = $.getSStorageInfo('selected_' + config.dictionary.edu)
+    var objJob = $.getSStorageInfo('selected_' + config.dictionary.job)
+    if (objEthnic) {
+      this.nation = objEthnic.value
+    } else {
+      this.getEthnic(this)
+    }
+    if (objEdu) {
+      this.qualifications = objEdu.value
+    } else {
+      this.getEdu(this)
+    }
+    if (objJob) {
+      this.job = objJob.value
+    } else {
+      this.getJob(this)
+    }
   },
   methods: {
     switchBtn: function () {
@@ -122,19 +138,42 @@ export default {
       }
     },
     getEthnic: function (vue) {
-      Utils.queryDictionary({type: 'ethnicType2', key: (userInfo.ethnic.length === 1 ? '0' + userInfo.ethnic : userInfo.ethnic)}, function (d) {
+      Utils.queryDictionary({type: config.dictionary.ethnic, key: (userInfo.ethnic.length === 1 ? '0' + userInfo.ethnic : userInfo.ethnic)}, function (d) {
         vue.nation = d.value
       })
     },
     getEdu: function (vue) {
-      Utils.queryDictionary({type: 'adapter2', key: (userInfo.eduCode)}, function (d) {
+      Utils.queryDictionary({type: config.dictionary.edu, key: (userInfo.eduCode)}, function (d) {
         vue.qualifications = d.value
       })
     },
     getJob: function (vue) {
-      Utils.queryDictionary({type: 'occupational2', key: (userInfo.jobCode)}, function (d) {
+      Utils.queryDictionary({type: config.dictionary.job, key: (userInfo.jobCode)}, function (d) {
         vue.job = d.value
       })
+    },
+    selectDetail: function (e) {
+      var title = e.path[0].attributes['default-hint'].value
+      var category
+      category = this.switchTitle(title)
+
+      // 页面跳转，手动修改url
+      this.$router.push({name: 'dictionarySelect', params: {}})
+      // 传参——事件的触发和接受必须绑定在同一个实例对象上，故BUS注册为全局变量
+      var _this = this
+      setTimeout(function () { // 让接收消息的地方晚于data中的初始数据绑定执行
+        _this.BUS.$emit('categoryEvent', {'category': category, 'title': title})
+      }, 0)
+//      _this.BUS.$emit('categoryEvent', {'category': category, 'title': title})
+    },
+    switchTitle: function (title) {
+      var category
+      switch (title) {
+        case '民族' : category = config.dictionary.ethnic; break
+        case '学历' : category = config.dictionary.edu; break
+        case '职业' : category = config.dictionary.job; break
+      }
+      return category
     }
   }
 }

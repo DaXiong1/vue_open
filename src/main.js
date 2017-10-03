@@ -5,7 +5,8 @@ import App from './App'
 import router from './router'
 import * as Utils from './utils/util'
 import * as $ from './utils/base'
-
+import bus from './utils/eventBus'
+Vue.use(bus)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

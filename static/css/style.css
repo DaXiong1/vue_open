@@ -311,15 +311,15 @@ section.main.fixed > article {
 }
 
 .input_text.focus > .t1 {
-    border-bottom: 1px solid #DE4C39
+    border-bottom: 1px solid #7cfc00
 }
 
 .input_text.focus > .tit {
-    color: #DE4C39
+    color: #7cfc00
 }
 
 .input_text.focus > .dropdown {
-    border-bottom: 1px solid #DE4C39
+    border-bottom: 1px solid #7cfc00
 }
 
 .input_text.error > .t1 {
@@ -400,7 +400,7 @@ section.main.fixed > article {
 }
 
 .input_text.focus > .teare01 {
-    border-bottom: 1px solid #DE4C39
+    border-bottom: 1px solid #7cfc00
 }
 
 .input_text.error > .teare01 {
@@ -474,7 +474,7 @@ section.main.fixed > article {
 }
 
 .switch > .switch-inner > .switch-btn .active {
-    background: #DE4C39
+    background: #7cfc00
 }
 
 .switch > .switch-inner > .switch-arrow {
@@ -575,11 +575,11 @@ section.main.fixed > article {
     display: block;
     height: .44rem;
     line-height: .42rem;
-    border: 1px solid #DE4C39;
+    border: 1px solid #7cfc00;
     text-align: center;
     font-size: .16rem;
     color: #fff;
-    background: #DE4C39;
+    background: #adff2f;
     border-radius: .04rem;
     -moz-border-radius: .04rem;
     -webkit-border-radius: .04rem
@@ -664,7 +664,7 @@ section.main.fixed > article {
     display: inline-block;
     line-height: .24rem;
     font-size: .12rem;
-    color: #DE4C39;
+    color: #7cfc00;
     position: absolute;
     top: 50%;
     margin-top: -.12rem;
@@ -687,7 +687,7 @@ section.main.fixed > article {
     text-align: center;
     font-size: .16rem;
     color: #fff;
-    background: #DE4C39
+    background: #7cfc00
 }
 
 .submit_btn a.disable {
@@ -698,7 +698,7 @@ section.main.fixed > article {
 .header_inner {
     height: .44rem;
     line-height: .43rem;
-    background: #DE4C39;
+    background: #7cfc00;
     position: relative;
     border-bottom: 1px solid #b7b7b7
 }
@@ -906,7 +906,7 @@ section.main.fixed > article {
     width: 100%;
     vertical-align: middle;
     text-align: center;
-    color: #DE4C39;
+    color: #7cfc00;
     font-size: .12rem;
     line-height: .12rem
 }
@@ -926,7 +926,7 @@ section.main.fixed > article {
     height: .3rem;
     line-height: .3rem;
     text-align: center;
-    background: #DE4C39;
+    background: #7cfc00;
     font-size: .14rem;
     color: #fff
 }
@@ -1580,7 +1580,7 @@ section.main.fixed > article {
 
 .account_list > ul > li span.status {
     font-size: .12rem;
-    color: #DE4C39;
+    color: #7cfc00;
     line-height: .2rem;
     position: absolute;
     top: .12rem;
@@ -1740,7 +1740,7 @@ section.main.fixed > article {
 }
 
 .rule_check a {
-    color: #DE4C39
+    color: #7cfc00
 }
 
 .icon_check {
@@ -1968,7 +1968,7 @@ section.main.fixed > article {
 }
 
 .test_result > p > a {
-    color: #DE4C39
+    color: #7cfc00
 }
 
 .mt20 {
@@ -2149,7 +2149,7 @@ section.main.fixed > article {
 }
 
 .bot_link a {
-    color: #DE4C39
+    color: #7cfc00
 }
 
 .result_wp {
@@ -2239,7 +2239,7 @@ section.main.fixed > article {
 }
 
 .progress_list > li > p a {
-    color: #DE4C39;
+    color: #7cfc00;
     margin-left: .1rem
 }
 
@@ -2334,8 +2334,8 @@ section.main.fixed > article {
     width: 1.02rem;
     text-align: center;
     margin: 0 auto;
-    border: 1px solid #DE4C39;
-    color: #DE4C39;
+    border: 1px solid #7cfc00;
+    color: #7cfc00;
     -moz-border-radius: .05rem;
     -webkit-border-radius: .05rem;
     border-radius: .05rem
@@ -2523,12 +2523,12 @@ section.main.fixed > article.content {
 .sidebar_box > a.login
 {
     margin: 0 0.1rem 0.1rem 0.1rem;
-    color: #DE4C39;
+    color: #7cfc00;
     font-size: 0.18rem;
     display: block;
     text-align: center;
     line-height: 0.38rem;
-    border: 1px solid #DE4C39;
+    border: 1px solid #7cfc00;
     border-radius: 0.03rem;
     -moz-border-radius: 0.03rem;
     -webkit-border-radius: 0.03rem;
@@ -2559,7 +2559,7 @@ section.main.fixed > article.content {
 	height:0.01rem;
 	background:#ddd;
 	margin:0.1rem 0.1rem 0;}
-	
+
 
 /*
  * 推荐人编号样式调整
@@ -2610,4 +2610,4 @@ section.main.fixed > article.content {
 .line2{
 	height:0.2rem;
 	border-bottom:1px solid #000;
-	width:1.4rem;}	
+	width:1.4rem;}

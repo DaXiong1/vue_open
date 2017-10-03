@@ -1,13 +1,18 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <dictionary-select style="display: none"></dictionary-select>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import DictionarySelect from './components/dictionarySelect'
+  export default {
+    name: 'app',
+    components: {
+      DictionarySelect
+    }
+  }
 </script>
 
 <style lang="css">

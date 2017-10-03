@@ -1,29 +1,66 @@
 <template>
-  <section class="main fixed">
-    <article>
-      <div class="load_box">
-        <div class="content_bottom">
-          <div class="buttons_box">
-            <a @click="jumpToMyBlog" href="javascript:void(0);">我的博客</a>
-          </div>
+  <div>
+    <section class="main fixed" data-page="home">
+      <header class="header">
+        <div class="header_inner hd_inner01">
+          <a class="icon_close" @click="closeBtn"></a>
+          <h1 class="title">选择{{title}}</h1>
         </div>
-      </div>
-    </article>
-  </section>
+      </header>
+      <article class="content">
+        <ul class="select_list" id="list">
+          <li v-for="item in items" @click="selectLi(item)">
+            <span>{{item.value}}</span>
+          </li>
+        </ul>
+      </article>
+    </section>
+  </div>
 </template>
 
 <script>
+import * as Utils from '../utils/util'
+import * as $ from '../utils/base'
+
 export default {
-  name: 'download',
+  name: 'dictionarySelect',
   data () {
+    console.log('data')
     return {
-      msg: ''
+      title: '',
+      items: [],
+      category: ''
     }
   },
   methods: {
-    jumpToMyBlog: function () {
-      window.location.href = 'http://blog.csdn.net/u012158998/article/details/73731525'
+    closeBtn: function () {
+      this.$router.push({name: 'userCardInfo', params: {}})
+    },
+    selectLi: function (item) {
+      item.title = this.title
+      $.setSStorageInfo('selected_' + this.category, item)
+      this.$router.push({name: 'userCardInfo', params: {}})
+    },
+    fillList: function (_this, data) {
+      _this.items = data
     }
+  },
+  mounted: function () {
+    var _this = this
+    _this.BUS.$on('categoryEvent', function (param) {
+      console.log(param.title)
+      _this.title = param.title
+      // 查询字典
+      if (param.category) {
+        _this.category = param.category
+        Utils.queryDictionary({type: param.category}, function (data) {
+          data && _this.fillList(_this, data)
+        })
+      }
+      _this.BUS.$off('categoryEvent') // 否则会多次触发
+    })
+//    console.log('abc')
+//    _this.title = 'abc'
   }
 }
 </script>

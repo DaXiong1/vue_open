@@ -14,10 +14,17 @@ const stepMap = {
   'visitsurvey': 'visitSurvey', // 问卷回访
   'success': 'applyResult' // 结果页
 }
+// 数据字典检索key值
+const dictionary = {
+  'ethnic': 'ethnicType2',
+  'edu': 'adapter2',
+  'job': 'occupational2'
+}
 
 export {
   serverUrl,
   serverPath,
   steps,
-  stepMap
+  stepMap,
+  dictionary
 }
