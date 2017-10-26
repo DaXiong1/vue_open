@@ -47,7 +47,23 @@ function queryDictionary (d, f) {
   }
 }
 
+/**
+ * 身份证号获取出生日期
+ * @param c 身份证号码 15或18位
+ * @returns 返回格式 1994-07-01
+ */
+function idCardToBirthday (c) {
+  if (c) {
+    if (c.length === 18) {
+      return c.replace(/\d{6}(\d{4})(\d{2})(\d{2})\d{3}[\dXx]/, '$1-$2-$3')
+    } else if (c.length === 15) {
+      return c.replace(/\d{6}(\d{2})(\d{2})(\d{2})\d{3}/, '19$1-$2-$3')
+    }
+  }
+}
+
 export {
   getUrlParam,
-  queryDictionary
+  queryDictionary,
+  idCardToBirthday
 }

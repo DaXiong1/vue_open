@@ -3,7 +3,7 @@
     <section class="main fixed hx_page" data-page="home">
       <header class="header">
         <div class="header_inner hd_inner01">
-          <a class="icon_back" id="icon_back" href="javascript:void(0);"></a>
+          <a class="icon_back" @click="back" href="javascript:void(0);"></a>
           <h1 class="title">身份信息</h1>
         </div>
       </header>
@@ -62,7 +62,7 @@
             </div>
           </div>
         </div>
-        <div class="ce_btn mt10"><a href="javascript:void(0);" id="submit">下一步</a></div>
+        <div class="ce_btn mt10"><a href="javascript:void(0);" @click="submit">下一步</a></div>
       </article>
     </section>
   </div>
@@ -105,7 +105,7 @@ export default {
       this.isAllLong = true
     } else {
       this.isAllLong = false
-      endDateCache = this.endDate
+      endDateCache = this.endDatev
     }
     // 处理民族/学历/职业
     var objEthnic = $.getSStorageInfo('selected_' + config.dictionary.ethnic)
@@ -128,6 +128,9 @@ export default {
     }
   },
   methods: {
+    back: function () {
+      this.$router.push({name: 'idCardCheck', params: {}})
+    },
     switchBtn: function () {
       if (this.isAllLong) {
         this.isAllLong = false
@@ -140,6 +143,8 @@ export default {
     getEthnic: function (vue) {
       Utils.queryDictionary({type: config.dictionary.ethnic, key: (userInfo.ethnic.length === 1 ? '0' + userInfo.ethnic : userInfo.ethnic)}, function (d) {
         vue.nation = d.value
+        // 保存在session中
+        $.setSStorageInfo('selected_' + config.dictionary.ethnic, d)
       })
     },
     getEdu: function (vue) {
@@ -174,6 +179,23 @@ export default {
         case '职业' : category = config.dictionary.job; break
       }
       return category
+    },
+    submit: function () {
+      this.saveUserInfoInSession(this)
+      this.$router.push({name: 'identitySupplement', params: {}})
+    },
+    saveUserInfoInSession: function (vue) {
+      userInfo.ethnic = $.getSStorageInfo('selected_ethnicType2').key
+      userInfo.ethnicname = $.getSStorageInfo('selected_ethnicType2').value
+      userInfo.userName = vue.name
+      userInfo.idCardNumber = vue.idCard
+      userInfo.idCardAddress = vue.address
+      userInfo.idbegindate = vue.beginDate.replace(/\./g, '-')
+      userInfo.idenddate = vue.endDate.replace(/\./g, '-')
+      userInfo.birthday = Utils.idCardToBirthday(userInfo.idCardNumber)  // 出生日期
+      userInfo.eduCode = $.getSStorageInfo('selected_adapter2').key
+      userInfo.jobCode = $.getSStorageInfo('selected_occupational2').key
+      userInfo.policeorg = vue.releaseOrgan
     }
   }
 }

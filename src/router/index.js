@@ -6,6 +6,9 @@ import Index from '@/components/index'
 import IdCardCheck from '@/components/idCardCheck'
 import UserCardInfo from '@/components/userCardInfo'
 import DictionarySelect from '@/components/dictionarySelect'
+import IdentitySupplement from '@/components/identitySupplement'
+import ProvinceCitySelect from '@/components/provinceCitySelect'
+import CountySelect from '@/components/countySelect'
 
 Vue.use(Router)
 
@@ -46,6 +49,24 @@ export default new Router({
       path: '/dictionarySelect',
       name: 'dictionarySelect',
       component: DictionarySelect
+    },
+    // 业务页面4
+    {
+      path: '/identitySupplement',
+      name: 'identitySupplement',
+      component: IdentitySupplement
+    },
+    // 业务页面4-1
+    {
+      path: '/provinceCitySelect',
+      name: 'provinceCitySelect',
+      component: ProvinceCitySelect
+    },
+    // 业务页面4-1-1
+    {
+      path: '/countySelect',
+      name: 'countySelect',
+      component: CountySelect
     }
   ]
 })

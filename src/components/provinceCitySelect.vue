@@ -1,0 +1,77 @@
+<template>
+  <div>
+    <section class="main fixed hx_page" data-page="home">
+      <header class="header">
+        <div class="header_inner hd_inner01">
+          <a class="icon_back" id="icon_back" href="javascript:void(0);"></a>
+          <h1 class="title">联系地址</h1>
+          <!--   <a class="icon_location" id="mapLocationBtn"></a>-->
+        </div>
+      </header>
+      <article class="content">
+        <div class="user_main hx_main mt10">
+          <div class="input_form">
+            <div class="input_text">
+              <span class="tit">{{tit.tit1}}</span>
+              <div class="dropdown" @click="provinceSelect" :category="category.category1" required error-hint="请选择[省/直辖市]"></div>
+            </div>
+            <div class="input_text">
+              <span class="tit">{{tit.tit2}}</span>
+              <div class="dropdown" @click="citySelect" :category="category.category2" required default-hint="市/区/县" error-hint="请选择[市/区/县]"></div>
+            </div>
+            <div class="input_text">
+              <span class="tit">{{tit.tit3}}</span>
+              <input class="t1" type="text" value="" id="address" style="border-bottom:1px solid #efefef" required default-hint="详细地址" error-hint="请输入详细地址" >
+              <!-- 	<span class="t1">永修县何市镇大筒子三村八队28号</span> -->
+            </div>
+          </div>
+        </div>
+        <div class="ce_btn"><a id="submit">确定</a></div>
+      </article>
+      <span class="id_icon"></span>
+    </section>
+  </div>
+</template>
+
+<script>
+import * as $ from '../utils/base'
+
+export default {
+  name: 'provinceCitySelect',
+  data () {
+    return {
+      tit: {
+        tit1: '省/直辖市',
+        tit2: '市/区/县',
+        tit3: '联系地址'
+      },
+      category: {
+        category1: 'province',
+        category2: 'city'
+      }
+    }
+  },
+  beforeCreate: function () {
+    this.$options.methods.queryAddressDic()
+  },
+  methods: {
+    queryAddressDic: function () {
+      var param = {funcNo: '601513'}
+      $.request(param, function (results) {
+        if (results.error_no === '0') {
+          $.setSStorageInfo('countyprovinceData', results.provinceList)
+          $.setSStorageInfo('countycityData', results.cityList)
+        } else {
+          alert(results.error_info)
+        }
+      })
+    },
+    provinceSelect: function () {
+      this.$router.push({name: 'countySelect', params: {'title': this.tit.tit1, 'selectCategory': this.category.category1}})
+    },
+    citySelect: function () {
+      this.$router.push({name: 'countySelect', params: {'title': this.tit.tit2, 'selectCategory': this.category.category2}})
+    }
+  }
+}
+</script>
