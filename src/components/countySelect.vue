@@ -46,7 +46,9 @@ export default {
           _this.items = $.getSStorageInfo('countyprovinceData')
           break
         case 'city':
-          _this.items = $.getSStorageInfo('countycityData')
+          _this.items = $.getSStorageInfo('countycityData').filter(function (item, index, arr) {
+            return (item.provincenno === $.getSStorageInfo('selected_prov_city').provinceno)
+          })
           break
       }
     },

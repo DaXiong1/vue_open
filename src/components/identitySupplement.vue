@@ -11,7 +11,7 @@
         <div class="user_main hx_main mt10">
           <div class="input_form">
             <div class="input_text">
-              <span class="tit">联系地址</span>
+              <span class="tit">{{tit.tit1}}</span>
               <div class="dropdown" @click="selectAddress" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"
                    required default-hint="联系地址" error-hint="请选择地址"></div>
             </div>
@@ -122,8 +122,13 @@ export default {
   name: 'identitySupplement',
   data () {
     return {
-      msg: ''
+      tit: {
+        tit1: '联系地址'
+      }
     }
+  },
+  mounted: function () {
+    this.tit.tit1 = this.$route.params.address
   },
   methods: {
     back: function () {
