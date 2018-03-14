@@ -41,7 +41,7 @@
           </div>
         </div>
         <input style="display:none" @change="input1" ref="input1" type="file" accept="image" capture="album">
-        <input style="display:none" @change="input2" ref="input2" type="file" accept="image" capture="camera">
+        <input style="display:none" @change="input1" ref="input2" type="file" accept="image" capture="camera">
         <div class="ce_btn">
           <a href="javascript:void(0);" @click="submit">下一步</a>
         </div>
@@ -75,7 +75,7 @@ export default {
       this.selectWay = true
     },
     album: function () {
-      const elem1 = this.$refs.input1//vue获取节点的方式，用ref属性绑定dom节点,可以减少获取dom节点的消耗
+      const elem1 = this.$refs.input1// vue获取节点的方式，用ref属性绑定dom节点,可以减少获取dom节点的消耗
       elem1.click()
     },
     camera: function () {
@@ -87,12 +87,6 @@ export default {
     },
     input1: function (e) {
       // 相册
-      let files = e.target.files || e.dataTransfer.files
-      if (!files.length) return
-      this.start_init(files[0])
-    },
-    input2: function (e) {
-      // 相机
       let files = e.target.files || e.dataTransfer.files
       if (!files.length) return
       this.start_init(files[0])
