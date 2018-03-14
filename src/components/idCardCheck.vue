@@ -75,7 +75,7 @@ export default {
       this.selectWay = true
     },
     album: function () {
-      const elem1 = this.$refs.input1
+      const elem1 = this.$refs.input1//vue获取节点的方式，用ref属性绑定dom节点,可以减少获取dom节点的消耗
       elem1.click()
     },
     camera: function () {
